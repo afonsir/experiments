@@ -25,4 +25,4 @@ end
 do_something
 GC.start
 Logger.play
-puts ObjectSpace.each_object(Thing).count
+puts ObjectSpace.each_object(Thing).count # 0

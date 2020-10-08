@@ -12,4 +12,4 @@ end
 do_something
 # Force major GC to make sure we free all objects that can be freed
 GC.start(full_mark: true, immediate_sweep: true)
-puts "LargeObject instances left in memory: %d" % ObjectSpace.each_object(LargeObject).count
+puts "LargeObject instances left in memory: %d" % ObjectSpace.each_object(LargeObject).count # 1
