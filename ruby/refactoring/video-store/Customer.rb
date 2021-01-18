@@ -20,7 +20,7 @@ class Customer
       frequent_renter_points += element.frequent_renter_points
 
       # show figures for this rental
-      result += "\t" + element.movie.title + "\t" + element.charge.to_s + "\n"
+      result << "\t#{element.movie.title}\t#{element.charge}\n"
       total_amount += element.charge
     end
 
