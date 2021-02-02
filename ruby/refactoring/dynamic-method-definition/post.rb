@@ -11,7 +11,19 @@ end
 class Post
   attr_accessor :state
 
-  def_each :failure, :error, :success do |method_name|
-    self.state = method_name
+  class << self
+    def states(*args)
+      args.each do |arg|
+        define_method arg do
+          self.state = arg
+        end
+      end
+    end
   end
+
+  # def_each :failure, :error, :success do |method_name|
+  #   self.state = method_name
+  # end
+
+  states :failure, :error, :success
 end
