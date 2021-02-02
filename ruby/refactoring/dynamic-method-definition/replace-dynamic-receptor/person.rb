@@ -1,11 +1,13 @@
 class Person
-  attr_accessor :name, :age
+  def self.attrs_with_empty_predicate(*args)
+    attr_accessor(*args)
 
-  def method_missing(sym, *args, &block)
-    empty?(sym.to_s.sub(/^empty_/, '').chomp('?'))
+    args.each do |attribute|
+      define_method "empty_#{attribute}?" do
+        send(attribute).nil?
+      end
+    end
   end
 
-  def empty?(sym)
-    send(sym).nil?
-  end
+  attrs_with_empty_predicate :name, :age
 end
