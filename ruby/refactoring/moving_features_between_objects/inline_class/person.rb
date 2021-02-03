@@ -1,11 +1,8 @@
 class Person
-  attr_reader :name, :office_telephone
-
-  def initialize
-    @office_telephone = TelephoneNumber.new
-  end
+  attr_reader :name
+  attr_accessor :area_code, :number
 
   def telephone_number
-    @office_telephone.telephone_number
+    "(#{area_code}) #{number}"
   end
 end
