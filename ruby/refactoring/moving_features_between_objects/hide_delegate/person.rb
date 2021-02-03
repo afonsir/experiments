@@ -1,3 +1,7 @@
 class Person
-  attr_accessor :department
+  attr_writer :department
+
+  def manager
+    @department.manager
+  end
 end
